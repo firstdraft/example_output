@@ -49,3 +49,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'font-awesome-sass', '~> 4.5.0'
 gem 'devise'
+group :development do
+  gem 'starter_generators', git: 'http://github.com/raghubetina/starter_generators.git'
+end
