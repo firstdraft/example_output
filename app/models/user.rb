@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # Validations
 
+  validates :username, :uniqueness => { :scope => [:website, :avatar, :phone_number, :referral_code] }
+
   validates :username, :presence => true
 
   # Include default devise modules. Others available are:
