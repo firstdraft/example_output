@@ -5,4 +5,6 @@ class FriendRequest < ApplicationRecord
 
   # Validations
 
+  validates :status, :presence => true
+
 end
