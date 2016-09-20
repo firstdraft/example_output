@@ -24,6 +24,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :timeline,
+             :through => :follows,
+             :source => :owner
+
   # Validations
 
   validates :username, :uniqueness => { :scope => [:website, :avatar, :phone_number, :referral_code] }
