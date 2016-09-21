@@ -19,7 +19,7 @@ class Photo < ApplicationRecord
              :source => :user
 
   has_many   :followers,
-             :through => :photos,
+             :through => :owner,
              :source => :followers
 
   # Validations
