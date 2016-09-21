@@ -6,10 +6,10 @@
   <div class="col-md-12">
     <dl class="dl-horizontal">
       <dt>Sender</dt>
-      <dd><%= @friend_request.sender_id %></dd>
+      <dd><%= @friend_request.sender.username %></dd>
 
       <dt>Recipient</dt>
-      <dd><%= @friend_request.recipient_id %></dd>
+      <dd><%= @friend_request.recipient.username %></dd>
 
       <dt>Status</dt>
       <dd><%= @friend_request.status %></dd>
