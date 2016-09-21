@@ -15,8 +15,11 @@
       <dd><%= @photo.location %></dd>
 
       <dt>Owner</dt>
-      <dd><%= @photo.owner.username %></dd>
-
+      <dd>
+        <a href="/users/<%= @photo.owner_id %>">
+          <%= @photo.owner.username %>
+        </a>
+      </dd>
     </dl>
 
     <div class="btn-group btn-group-justified">
