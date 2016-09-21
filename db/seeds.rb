@@ -79,3 +79,4 @@ users.each do |follower|
 end
 
 puts "There are now #{FriendRequest.count} friend requests in the database."
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
