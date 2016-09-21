@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20160920035552) do
   create_table "friend_requests", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
-    t.string   "status"
+    t.string   "status",       default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
