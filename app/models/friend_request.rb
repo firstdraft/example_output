@@ -3,11 +3,11 @@ class FriendRequest < ApplicationRecord
 
   belongs_to :recipient,
              :class_name => "User",
-             :counter_cache => true
+             :counter_cache => :received_friend_requests_count
 
   belongs_to :sender,
              :class_name => "User",
-             :counter_cache => true
+             :counter_cache => :sent_friend_requests_count
 
   # Indirect associations
 

@@ -2,10 +2,10 @@ class Vote < ApplicationRecord
   # Direct associations
 
   belongs_to :user,
-             :counter_cache => true
+             :counter_cache => :likes_count
 
   belongs_to :photo,
-             :counter_cache => true
+             :counter_cache => :likes_count
 
   # Indirect associations
 
