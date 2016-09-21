@@ -13,5 +13,5 @@ ActiveAdmin.register Photo do
 #   permitted
 # end
 
-
+  permit_params :image, :caption, :owner_id
 end
