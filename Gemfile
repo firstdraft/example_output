@@ -55,3 +55,6 @@ gem 'devise'
 group :development do
   gem 'starter_generators', git: 'http://github.com/raghubetina/starter_generators.git'
 end
+
+gem 'gmaps4rails'
+gem 'underscore-rails'
