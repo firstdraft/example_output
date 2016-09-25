@@ -27,4 +27,6 @@ class Photo < ApplicationRecord
   validates :image, :presence => true
 
   validates :owner_id, :presence => true
+
+  mount_uploader :image, ImageUploader
 end
