@@ -7,6 +7,50 @@
 
 <div class="row">
   <div class="col-md-12">
+    <div id="location_map" style="height: 480px;"></div>
+
+    <script>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('location_map'));
+
+        var markers = []
+
+        <% @photos.where.not(:location_latitude => nil).each do |photo| %>
+          var myLatLng = {lat: <%= photo.location_latitude %>, lng: <%= photo.location_longitude %>};
+
+          var infowindow = new google.maps.InfoWindow({
+            content: '<%= photo.location_formatted_address %>'
+          });
+
+          var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: '<%= photo.location_formatted_address %>'
+          });
+
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+
+          markers.push(marker);
+        <% end %>
+
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < markers.length; i++) {
+         bounds.extend(markers[i].getPosition());
+        }
+
+        map.fitBounds(bounds);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+    </script>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
         <th>Image</th>
