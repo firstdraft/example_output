@@ -12,7 +12,37 @@
       <dd><%= @photo.caption %></dd>
 
       <dt>Location</dt>
-      <dd><%= @photo.location %></dd>
+      <dd>
+        <div id="location_map" style="height: 480px;"></div>
+
+        <script>
+          function initMap() {
+            var myLatLng = {lat: <%= @photo.location_latitude %>, lng: <%= @photo.location_longitude %>};
+
+            var map = new google.maps.Map(document.getElementById('location_map'), {
+              zoom: 15,
+              center: myLatLng
+            });
+
+            var infowindow = new google.maps.InfoWindow({
+              content: '<%= @photo.location_formatted_address %>'
+            });
+
+            var marker = new google.maps.Marker({
+              position: myLatLng,
+              map: map,
+              title: '<%= @photo.location_formatted_address %>'
+            });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?callback=initMap">
+        </script>
+      </dd>
 
       <dt>Owner</dt>
       <dd>
